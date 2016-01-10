@@ -1,0 +1,242 @@
+if &shell =~# 'fish$'
+      set shell=sh
+endif
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+"NeoBundle Scripts-----------------------------
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
+  set runtimepath+=/home/vanweelden/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('/home/vanweelden/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+
+NeoBundle 'Shougo/neocomplete'
+
+NeoBundle 'fatih/vim-go'
+NeoBundle 'fatih/molokai'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'tpope/vim-git'
+NeoBundle 'airblade/vim-gitgutter'
+
+" You can specify revision/branch/tag.
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+noremap , \
+let mapleader = ","
+
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+" vim go
+let g:go_fmt_command = 'goimports'
+" let g:go_fmt_options = '-s'
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_metalinter_command = "gometalinter ./..."
+
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+au FileType go nmap <Leader>i <Plug>(go-info)
+
+
+" Rainbows
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Tagbar
+nmap <leader>tb :TagbarToggle<CR>
+
+" Vim settings
+syntax enable                       " enable syntax highlighting
+set encoding=utf8                   " utf8 default encoding
+set scrolloff=3                     " show 3 lines of context around the cursor
+set autoread                        " set to auto read when a file is changed from the outside
+set autowrite
+set showcmd                         " show typed commands
+
+set wildmenu                        " turn on WiLd menu
+set wildmode=list:longest,list:full " activate TAB auto-completion for file paths
+set wildignore+=*.o,.git,.svn,node_modules,*.class,*.jar,*.png,*.jpg,*.jpeg,*.gif,*.zip,*.tar,*.gz,target
+
+set ruler                           " always show current position
+set backspace=indent,eol,start      " set backspace config, backspace as normal
+set nomodeline                      " security
+
+set hlsearch                        " highlight search things
+set incsearch                       " go to search results as typing
+set smartcase                       " but case-sensitive if expression contains a capital letter.
+set ignorecase                      " ignore case when searching
+set gdefault                        " assume global when searching or substituting
+set magic                           " set magic on, for regular expressions
+set showmatch                       " show matching brackets when text indicator is over them
+
+set fileformats=unix,mac,dos
+
+set nobackup                        " prevent backups of files, since using vcs
+set nowritebackup
+set noswapfile
+
+set shiftwidth=2                    " set tab width
+set softtabstop=2
+set tabstop=2
+
+set smarttab
+set expandtab                       " use spaces, not tabs
+set autoindent                      " set automatic code indentation
+set hidden                          " allow background buffers w/out writing
+
+set wrap                            " don't wrap lines
+
+set list                            " show hidden characters
+set listchars=tab:\ \ ,trail:·      " show · for trailing space, \ \ for trailing tab
+set spelllang=en,de                 " set spell check language
+
+set t_Co=256                        " use 256 colors
+set number
+
+" clear highlight
+nnoremap <leader><space> :noh<cr>
+
+" yank entire file (global yank)
+nmap gy ggVGy
+
+" allow saving when you forgot sudo
+cmap w!! w !sudo tee % >/dev/null
+
+" saving when focus lost (after tabbing away or switching buffers)
+au FocusLost,BufLeave,WinLeave,TabLeave * silent! up
+
+" open in last edit place
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+au QuickFixCmdPost *grep* cwindow
+
+let g:molokai_original = 1
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
