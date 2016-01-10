@@ -1,0 +1,3 @@
+function gometalint
+  gometalinter --concurrency=16 ./...
+end

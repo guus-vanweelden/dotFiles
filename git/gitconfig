@@ -1,0 +1,11 @@
+[user]
+  name = Guus van Weelden
+  email = vanweelden@veeseo.com
+[push]
+  default = matching
+[url "git@gitlab.org"]
+  InsteadOf = https://gitlab.org/
+  InsteadOf = http://gitlab.org/
+  InsteadOf = git://gitlab.org/
+[url "git@bitbucket.org:veeseo/"]
+	insteadOf = https://bitbucket.org/veeseo/
