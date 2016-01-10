@@ -58,6 +58,7 @@ cd dotFiles
 git remote set-url origin git@gitlab.com:g.van.weelden/dotFiles.git
 
 # set defaults
+omf install hulk
 sudo update-alternatives --config editor
 sudo usermod -s `which fish` `whoami`
 
