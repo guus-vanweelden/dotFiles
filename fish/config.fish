@@ -7,11 +7,6 @@ set -gx OMF_PATH $HOME/.local/share/omf
 # Load oh-my-fish configuration.
 source $OMF_PATH/init.fish
 
-# Custom plugins and themes may be added to ~/.oh-my-fish/custom
-# Plugins and themes can be found at https://github.com/oh-my-fish/
-Theme 'robbyrussell'
-Plugin 'theme'
-
 set -x GOPATH $HOME/go
 set -x PATH $PATH /usr/local/go/bin 
 set -x PATH $PATH $HOME/go/bin
