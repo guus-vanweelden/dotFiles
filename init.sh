@@ -31,6 +31,7 @@ sudo make install
 cd ~
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
 sh ./install.sh
+rm install.sh
 
 # install go1.5.2
 mkdir -p ~/go
@@ -41,7 +42,18 @@ sudo tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
 # get dotFiles & link them
 cd ~/dev
 git clone https://gitlab.com/g.van.weelden/dotFiles.git
+
+rm ~/.gitconfig
 ln -s ~/dev/dotFiles/git/gitconfig ~/.gitconfig
 rm -rf ~/.config/fish/
-ln -s ~/dev/dotFiles/fish .config/fish
+ln -s ~/dev/dotFiles/fish ~/.config/fish
+rm ~/.tmux.conf
+ln -s ~/dev/dotFiles/tmux/tmux.conf ~/.tmux.conf
+rm ~/.vimrc
+ln -s ~/dev/dotFiles/vim/vimrc ~/.vimrc
+cd dotFiles
 git remote set-url origin git@gitlab.com:g.van.weelden/dotFiles.git
+
+# set defaults
+sudo update-alternatives --config editor
+sudo usermod -s `which fish` `whoami`
