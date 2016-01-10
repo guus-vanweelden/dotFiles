@@ -46,13 +46,13 @@ sudo tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
 cd ~/dev
 git clone https://gitlab.com/g.van.weelden/dotFiles.git
 
-rm ~/.gitconfig
+rm -f ~/.gitconfig
 ln -s ~/dev/dotFiles/git/gitconfig ~/.gitconfig
 rm -rf ~/.config/fish/
 ln -s ~/dev/dotFiles/fish ~/.config/fish
-rm ~/.tmux.conf
+rm -f ~/.tmux.conf
 ln -s ~/dev/dotFiles/tmux/tmux.conf ~/.tmux.conf
-rm ~/.vimrc
+rm -f ~/.vimrc
 ln -s ~/dev/dotFiles/vim/vimrc ~/.vimrc
 cd dotFiles
 git remote set-url origin git@gitlab.com:g.van.weelden/dotFiles.git
