@@ -33,6 +33,9 @@ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.s
 sh ./install.sh
 rm install.sh
 
+# install OhMyFish
+curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
+
 # install go1.5.2
 mkdir -p ~/go
 cd /tmp/
@@ -57,3 +60,7 @@ git remote set-url origin git@gitlab.com:g.van.weelden/dotFiles.git
 # set defaults
 sudo update-alternatives --config editor
 sudo usermod -s `which fish` `whoami`
+
+#
+sudo apt-get autoclean
+echo "You shoul'd now copy your ssh keys"
