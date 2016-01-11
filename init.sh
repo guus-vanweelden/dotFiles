@@ -28,6 +28,7 @@ make
 sudo make install
 
 # install vim extensions
+sudo apt-get install exuberant-ctags
 cd ~
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
 sh ./install.sh
