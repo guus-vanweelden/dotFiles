@@ -6,7 +6,7 @@
 # update & upgrade (ubuntu)
 sudo apt-get update
 sudo apt-get -y dist-upgrade
-sudo apt-get -y install git git-svn subversion mercurial vim-nox build-essential
+sudo apt-get -y install git tig git-svn subversion mercurial vim-nox build-essential
 
 mkdir -p ~/dev
 cd ~/dev
