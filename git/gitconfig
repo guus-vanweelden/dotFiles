@@ -8,4 +8,4 @@
   InsteadOf = http://gitlab.org/
   InsteadOf = git://gitlab.org/
 [url "git@bitbucket.org:veeseo/"]
-	insteadOf = https://bitbucket.org/veeseo/
+  insteadOf = https://bitbucket.org/veeseo/
