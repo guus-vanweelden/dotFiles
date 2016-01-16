@@ -66,3 +66,4 @@ sudo usermod -s `which fish` `whoami`
 #
 sudo apt-get autoclean
 echo "You shoul'd now copy your ssh keys"
+wget -qO- https://get.docker.com/ | sh

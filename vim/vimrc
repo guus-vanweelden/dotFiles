@@ -37,6 +37,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'tpope/vim-git'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'hashivim/vim-terraform'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
