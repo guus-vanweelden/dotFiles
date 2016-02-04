@@ -37,11 +37,15 @@ rm install.sh
 # install OhMyFish
 curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 
+cd /tmp/
 # install go1.5.2
 mkdir -p ~/go
-cd /tmp/
 wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
+
+# install go_appengine
+wget https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.31.zip
+sudo unzip go_appengine_sdk_linux_amd64-1.9.31.zip -d /usr/local/
 
 # get dotFiles & link them
 cd ~/dev
