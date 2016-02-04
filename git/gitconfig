@@ -1,6 +1,6 @@
 [user]
   name = Guus van Weelden
-  email = vanweelden@veeseo.com
+	email = guus.vanweelden@ligatus.com
 [push]
   default = matching
 [url "git@gitlab.org"]
