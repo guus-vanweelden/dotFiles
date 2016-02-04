@@ -43,6 +43,12 @@ mkdir -p ~/go
 wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
 
+# install current google cloud sdk
+sudo rm -f /usr/bin/bq
+sudo rm -f /usr/bin/gsutil
+sudo rm -f /usr/bin/gcloud
+curl https://sdk.cloud.google.com | bash
+
 # install go_appengine
 wget https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.31.zip
 sudo unzip go_appengine_sdk_linux_amd64-1.9.31.zip -d /usr/local/

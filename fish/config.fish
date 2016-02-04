@@ -11,6 +11,7 @@ set -x GOPATH $HOME/go
 set -x PATH $PATH /usr/local/go/bin 
 set -x PATH $PATH /usr/local/go_appengine
 set -x PATH $PATH $HOME/go/bin
+set -x PATH $PATH $HOME/google-cloud-sdk/bin
 
 set -x LANGUAGE en_US.UTF-8
 set -x LANG en_US.UTF-8
