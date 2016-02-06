@@ -1,4 +1,4 @@
 function gpgp
         git pull
-        git push
+        git push -u origin HEAD
 end
