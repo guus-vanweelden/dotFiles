@@ -38,10 +38,10 @@ rm install.sh
 curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 
 cd /tmp/
-# install go1.5.2
+# install go1.6.1
 mkdir -p ~/go
-wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
+wget https://storage.googleapis.com/golang/go1.6.1.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.6.1.linux-amd64.tar.gz
 
 # install current google cloud sdk
 sudo rm -f /usr/bin/bq
