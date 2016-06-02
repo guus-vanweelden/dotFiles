@@ -10,6 +10,7 @@ sudo apt-get update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y install bzr git tig git-svn subversion mercurial vim-nox build-essential exuberant-ctags
 
+mkdir -p ~/bin
 mkdir -p ~/dev
 cd ~/dev
 
@@ -43,6 +44,12 @@ cd /tmp/
 mkdir -p ~/go
 wget https://storage.googleapis.com/golang/$GOVERSION.tar.gz
 sudo tar -C /usr/local -xzf $GOVERSION.tar.gz
+
+# install hub (https://github.com/github/hub)
+cd ~/dev
+git clone https://github.com/github/hub.git
+cd hub
+./script/build -o ~/bin/hub
 
 # install current google cloud sdk
 sudo rm -f /usr/bin/bq
