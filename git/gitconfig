@@ -1,11 +1,15 @@
 [user]
   name = Guus van Weelden
-	email = guus.vanweelden@ligatus.com
+  email = guus.vanweelden@ligatus.com
 [push]
   default = matching
-[url "git@gitlab.org"]
+[url "git@gitlab.org/"]
   InsteadOf = https://gitlab.org/
   InsteadOf = http://gitlab.org/
   InsteadOf = git://gitlab.org/
 [url "git@bitbucket.org:veeseo/"]
   insteadOf = https://bitbucket.org/veeseo/
+[url "git@github.com:veeseo/"]
+  insteadOf = https://github.com/veeseo/
+[alias]
+	clone-branches = "! git branch -a | sed -n \"/\\/HEAD /d; /\\/master$/d; /remotes/p;\" | xargs -L1 git checkout -t"
