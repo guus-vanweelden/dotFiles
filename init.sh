@@ -3,10 +3,12 @@
 # init guus dev instance
 # tested on ubuntu 15.10
 
+GOVERSION=go1.7beta1.linux-amd64
+
 # update & upgrade (ubuntu)
 sudo apt-get update
 sudo apt-get -y dist-upgrade
-sudo apt-get -y install bzr git tig git-svn subversion mercurial vim-nox build-essential
+sudo apt-get -y install bzr git tig git-svn subversion mercurial vim-nox build-essential exuberant-ctags
 
 mkdir -p ~/dev
 cd ~/dev
@@ -28,7 +30,6 @@ make
 sudo make install
 
 # install vim extensions
-sudo apt-get install exuberant-ctags
 cd ~
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
 sh ./install.sh
@@ -38,10 +39,10 @@ rm install.sh
 curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 
 cd /tmp/
-# install go1.6.1
+# install $GOVERSION
 mkdir -p ~/go
-wget https://storage.googleapis.com/golang/go1.6.1.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.6.1.linux-amd64.tar.gz
+wget https://storage.googleapis.com/golang/$GOVERSION.tar.gz
+sudo tar -C /usr/local -xzf $GOVERSION.tar.gz
 
 # install current google cloud sdk
 sudo rm -f /usr/bin/bq
@@ -49,9 +50,11 @@ sudo rm -f /usr/bin/gsutil
 sudo rm -f /usr/bin/gcloud
 curl https://sdk.cloud.google.com | bash
 
-# install go_appengine
-wget https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.31.zip
-sudo unzip go_appengine_sdk_linux_amd64-1.9.31.zip -d /usr/local/
+
+# TODO: add golang App Engine SDK to apt 
+## install go_appengine
+# wget https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.31.zip
+# sudo unzip go_appengine_sdk_linux_amd64-1.9.31.zip -d /usr/local/
 
 # get dotFiles & link them
 cd ~/dev
@@ -68,8 +71,8 @@ ln -s ~/dev/dotFiles/vim/vimrc ~/.vimrc
 cd dotFiles
 git remote set-url origin git@gitlab.com:g.van.weelden/dotFiles.git
 
-# set defaults
-omf install hulk
+## set defaults
+# omf install hulk
 sudo update-alternatives --config editor
 sudo usermod -s `which fish` `whoami`
 
