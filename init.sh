@@ -3,7 +3,7 @@
 # init guus dev instance
 # tested on ubuntu 15.10
 
-GOVERSION=go1.7beta1.linux-amd64
+GOVERSION=go1.6.2.linux-amd64
 
 # update & upgrade (ubuntu)
 sudo apt-get update
@@ -44,6 +44,9 @@ cd /tmp/
 mkdir -p ~/go
 wget https://storage.googleapis.com/golang/$GOVERSION.tar.gz
 sudo tar -C /usr/local -xzf $GOVERSION.tar.gz
+
+#
+go get -u -v -x github.com/kardianos/govendor
 
 # install hub (https://github.com/github/hub)
 cd ~/dev
