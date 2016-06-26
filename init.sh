@@ -4,6 +4,7 @@
 # tested on ubuntu 15.10
 
 GOVERSION=go1.6.2.linux-amd64
+GOAEVERSION=linux_amd64-1.9.38
 
 # update & upgrade (ubuntu)
 sudo apt-get update
@@ -37,7 +38,8 @@ sh ./install.sh
 rm install.sh
 
 # install OhMyFish
-curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
+## TODO
+# curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 
 cd /tmp/
 # install $GOVERSION
@@ -63,12 +65,12 @@ curl https://sdk.cloud.google.com | bash
 
 # TODO: add golang App Engine SDK to apt 
 ## install go_appengine
-# wget https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.31.zip
-# sudo unzip go_appengine_sdk_linux_amd64-1.9.31.zip -d /usr/local/
+wget https://storage.googleapis.com/appengine-sdks/featured/go_appengine_$GOAEVERSION.zip
+sudo unzip go_appengine_sdk_$GOAEVERSION.zip -d /usr/local/
 
 # get dotFiles & link them
 cd ~/dev
-git clone https://gitlab.com/g.van.weelden/dotFiles.git
+git clone https://github.com/guus-vanweelden/dotFiles.git
 
 rm -f ~/.gitconfig
 ln -s ~/dev/dotFiles/git/gitconfig ~/.gitconfig
@@ -79,7 +81,7 @@ ln -s ~/dev/dotFiles/tmux/tmux.conf ~/.tmux.conf
 rm -f ~/.vimrc
 ln -s ~/dev/dotFiles/vim/vimrc ~/.vimrc
 cd dotFiles
-git remote set-url origin git@gitlab.com:g.van.weelden/dotFiles.git
+git remote set-url origin git@github.com:guus-vanweelden/dotFiles.git
 
 ## set defaults
 # omf install hulk
@@ -89,4 +91,3 @@ sudo usermod -s `which fish` `whoami`
 #
 sudo apt-get autoclean
 echo "You shoul'd now copy your ssh keys"
-wget -qO- https://get.docker.com/ | sh
