@@ -3,8 +3,8 @@
 # init guus dev instance
 # tested on ubuntu 15.10
 
-GOVERSION=go1.6.2.linux-amd64
-GOAEVERSION=linux_amd64-1.9.38
+GOVERSION=go1.7linux-amd64
+GOAEVERSION=linux_amd64-1.9.40
 
 # update & upgrade (ubuntu)
 sudo apt-get update
