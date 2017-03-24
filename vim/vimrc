@@ -47,6 +47,8 @@ NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'timonv/vim-cargo'
 
+NeoBundle 'chase/vim-ansible-yaml'
+
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
@@ -120,7 +122,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')

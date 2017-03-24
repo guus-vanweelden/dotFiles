@@ -7,9 +7,13 @@
   InsteadOf = https://gitlab.org/
   InsteadOf = http://gitlab.org/
   InsteadOf = git://gitlab.org/
-[url "git@bitbucket.org:veeseo/"]
-  insteadOf = https://bitbucket.org/veeseo/
-[url "git@github.com:veeseo/"]
-  insteadOf = https://github.com/veeseo/
+[url "git@gitlab.build.ligatus.com:veeseo/"]
+  insteadOf = https://gitlab.build.ligatus.com/veeseo/
+[url "git@gitlab.build.ligatus.com:liquidm/"]
+  insteadOf = https://gitlab.build.ligatus.com/liquidm/
+[url "git@github.com:liquidm/"]
+  insteadOf = https://github.com/liquidm/
 [alias]
-	clone-branches = "! git branch -a | sed -n \"/\\/HEAD /d; /\\/master$/d; /remotes/p;\" | xargs -L1 git checkout -t"
+  clone-branches = "! git branch -a | sed -n \"/\\/HEAD /d; /\\/master$/d; /remotes/p;\" | xargs -L1 git checkout -t"
+[url "git@gitlab.build.ligatus.com:shared-services/"]
+  InsteadOf = https://gitlab.build.ligatus.com/shared-services/

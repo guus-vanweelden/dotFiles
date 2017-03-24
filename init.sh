@@ -9,7 +9,7 @@ GOAEVERSION=linux_amd64-1.9.40
 # update & upgrade (ubuntu)
 sudo apt-get update
 sudo apt-get -y dist-upgrade
-sudo apt-get -y install bzr git tig git-svn subversion mercurial vim-nox build-essential exuberant-ctags
+sudo apt-get -y install bzr git tig git-svn subversion mercurial vim-nox build-essential exuberant-ctags jq
 
 mkdir -p ~/bin
 mkdir -p ~/dev
