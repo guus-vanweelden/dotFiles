@@ -1,19 +1,9 @@
 [user]
   name = Guus van Weelden
-  email = guus.vanweelden@ligatus.com
+  email = guus@loodse.com
 [push]
   default = matching
-[url "git@gitlab.org/"]
-  InsteadOf = https://gitlab.org/
-  InsteadOf = http://gitlab.org/
-  InsteadOf = git://gitlab.org/
-[url "git@gitlab.build.ligatus.com:veeseo/"]
-  insteadOf = https://gitlab.build.ligatus.com/veeseo/
-[url "git@gitlab.build.ligatus.com:liquidm/"]
-  insteadOf = https://gitlab.build.ligatus.com/liquidm/
-[url "git@github.com:liquidm/"]
-  insteadOf = https://github.com/liquidm/
+[url "git@github.com:"]
+  insteadOf = https://github.com/
 [alias]
   clone-branches = "! git branch -a | sed -n \"/\\/HEAD /d; /\\/master$/d; /remotes/p;\" | xargs -L1 git checkout -t"
-[url "git@gitlab.build.ligatus.com:shared-services/"]
-  InsteadOf = https://gitlab.build.ligatus.com/shared-services/
